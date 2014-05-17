@@ -33,7 +33,11 @@ betAfriendApp.config(['$routeProvider',
         when('/my-bets', {
             templateUrl: 'partials/my-bets.html',
             controller: 'BetDetailCtrl'
-        }).     
+        }).  
+        when('/my-friends', {
+            templateUrl: 'partials/my-friends.html',
+            controller: 'UserDetailCtrl'
+        }).           
         when('/bet/:betId', {
             templateUrl: 'partials/user-detail.html',
             controller: 'UserDetailCtrl'

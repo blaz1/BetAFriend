@@ -77,3 +77,10 @@ betAfriendControllers.controller('UserDetailCtrl', ['$scope', '$routeParams', '$
       $scope.users = data;
     });
   }]);
+
+betAfriendControllers.controller('BetDetailCtrl', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+    $http.get('json/' + $routeParams.phoneId + '.json').success(function(data) {
+      $scope.phone = data;
+    });
+  }]);

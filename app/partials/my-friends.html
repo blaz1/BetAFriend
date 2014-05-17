@@ -1,0 +1,32 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>My friends</h3>
+    </div>
+
+    <div class="container">
+        <table class="table table-responsive" ng-controller="BetListCtrl">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Categories</th>
+                    <th>Reward</th>
+                    <th>End date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in users">
+                    <td>1</td>
+                    <td>
+
+
+                    </td>                   
+                    <td>{{categories[bet.categories[0].categoryID].name}}</td>
+                    <td>10€</td>
+                    <td>{{bets.dueDate}}</td>
+                </tr>
+            </tbody>
+        </table>        
+    </div>    
+       
+ </div>
