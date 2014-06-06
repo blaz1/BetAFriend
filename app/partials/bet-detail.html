@@ -21,7 +21,9 @@
                         <div class="form-row">
                             <label class="col-md-3 control-label" for="tagsinput">Categories</label>
                             <div class="col-md-9">
-                                <label ng-repeat="kat in bet.categories" style="margin-left:0.3em;">{{kat.name}}</label>
+                                <a href="/#!/category/{{kat.id}}" ng-repeat="kat in bet.categories" style="margin-right:0.3em;">
+                                    <label class="label label-primary">{{kat.name}}</label>
+                                </a>                                
                             </div>
                         </div>
                         <div class="form-row">
@@ -79,17 +81,18 @@
                         <h6>Rules</h6>
                         <div class="col-md-12">
                             <ul class="ruleList">
-                                <li ng-repeat="rule in bet.betDetails.betDescription.rules">
-                                    <label class="checkbox editRule">
+                                <li ng-repeat="rule in bet.betDetails.betDescription.rules" id="rule{{rule.num}}">
+                                    <label class="checkbox">
                                         <input type="checkbox" data-toggle="checkbox" checked>
-                                        {{rule.description}}
+                                        <div style="display:inline" class="editRule">{{rule.description}}</div>
+                                        <button type="button" class="btn btn-danger btn-xs delete-rule" ng-click="deleteRule('rule'+rule.num);" style="visibility:hidden;">X</button>
                                     </label>
                                 </li>
 
                             </ul>
                         </div>
                     <div class="form-row">
-                        <button class="btn btn-embossed btn-success btn-group-xs" ng-click="addNewRule();">+</button>
+                        <button class="btn btn-embossed btn-success btn-group-xs" id="addNewRuleButton" style="visibility:hidden" ng-click="addNewRule();">+</button>
                     </div>                        
                     </div>
                 </div>

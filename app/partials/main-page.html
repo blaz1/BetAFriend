@@ -24,7 +24,7 @@
 				<div class="col-md-3" id="lastsBets">
 					<h4>Last Bets</h4>
 					<div class="list-group">
-						<a href="/#!/bet/{{bet.id}}" class="list-group-item" ng-repeat="bet in bets | filter:query | limitTo:limitNum | orderBy:orderProp">
+						<a href="/#!/bet/{{bet.id}}" class="list-group-item" ng-repeat="bet in bets | orderByPriority | limitTo:5">
 							<p class="list-group-item-heading">{{bet.name}}</p>
 							<p class="list-group-item-text">
 								<small>{{bet.creationDate}}</small>

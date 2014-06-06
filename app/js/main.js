@@ -47,6 +47,7 @@ function loadTagCategories(id) {
                         }*/
 
                         function deleteRule(rule) {
+                            //alert(rule);
                             var a = '#'+rule;
                             $(a).remove();
                         }
