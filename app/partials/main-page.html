@@ -39,7 +39,7 @@
 				<div class="col-md-3">
 					<h4>Most Popular</h4>
 					<div class="list-group">
-						<a href="/#!/bet/{{bet.id}}" class="list-group-item" ng-repeat="bet in bets">
+						<a href="/#!/bet/{{bet.id}}" class="list-group-item" ng-repeat="bet in bets | orderByPriority | limitTo:5">
 							<p class="list-group-item-heading">{{bet.name}}</p>
 							<p class="list-group-item-text">
 								<small>{{bet.creationDate}}</small>

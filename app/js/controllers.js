@@ -12,54 +12,36 @@ betAfriendControllers.controller('UserProfileController', ['$scope', '$rootScope
 
 }]);
 /* DASHBOARD CONTROLLER */ 
-betAfriendControllers.controller('DashboardController',  ['$scope', '$firebase', '$http', 'fireFactory', function($scope, $firebase, $http, fireFactory) {
-    //var betsSource = new Firebase("https://dazzling-fire-5750.firebaseio.com/bets/");
-    /*var usersSource = new Firebase("https://dazzling-fire-5750.firebaseio.com/users/");    
+betAfriendControllers.controller('DashboardController',  ['$scope', '$firebase', '$http', '$filter', 'fireFactory', function($scope, $firebase, $http, $filter, fireFactory) {
+    /*var betsSource = new Firebase("https://dazzling-fire-5750.firebaseio.com/bets/");
+    var usersSource = new Firebase("https://dazzling-fire-5750.firebaseio.com/users/");    
     var categoriesSource = new Firebase("https://dazzling-fire-5750.firebaseio.com/categories/");*/
     $scope.bets = $firebase(fireFactory.firebaseRef("bets/"));
-    $scope.users = $firebase(fireFactory.firebaseRef("users/"));
     $scope.categories = $firebase(fireFactory.firebaseRef("categories/"));
     $scope.stats = $firebase(fireFactory.firebaseRef("stats/"));
     $scope.orderProp = 'id';
     $scope.limitNum = 5;
-    //console.log($scope.bets);
-    /*var newList = [];
-    for (var i = 0; i < 5; i++) {
-        newList[i] = {id:i, name:"janez"};
-    }
-    $scope.neki = newList;
-    /*var catecs = $firebase(categoriesSource);
-    var catList = [];
-    var test = JSON.stringify(catecs);
-    /*for(var i = 0; i < catecs.length; i++) {
 
-        catList[i] = {
-                      catNum:0
-                     };
-        //console.log(catList[i]);
-    }*/
-   /* var n = test.length;
-    for(var i = 0; i < 10; i++) {
-        catList[i] = {catNum:test[0]};
-    }
-    $scope.cats = catList;
+    //var betss = $firebase(fireFactory.firebaseRef("bets/"));
 
-    /*for(int i = 0; i < bets.length; i++) {
-        for(int j = 0; j < bet[i].categories.length; j++) {
-            for(int k = 0; k < catList.length; k++) {
-                if (bet[i].categories[j].categoryID == catList[k].catId) {
-                    catList[k].catNum++;
-                }
-            }
-        }
-    }*/
+    /*$scope.bets = $filter("orderByPriority")($firebase(fireFactory.firebaseRef("bets/")));
+    $scope.categories = $firebase(fireFactory.firebaseRef("categories/"));
+    $scope.stats = $firebase(fireFactory.firebaseRef("stats/"));*/
 }]);
 
 /* BROWSE BETS CONTROLLER */
-betAfriendControllers.controller('BrowseBetsController', ['$scope', '$http', '$firebase', 'fireFactory', function($scope, $http, $firebase, fireFactory) {
+betAfriendControllers.controller('BrowseBetsController', ['$scope', '$http', '$firebase', 'fireFactory', '$filter', function($scope, $http, $firebase, fireFactory, $filter) {
+    /*$scope.bets = $filter("orderByPriority")($firebase(fireFactory.firebaseRef("bets/")));
+    $scope.categories = $filter("orderByPriority")($firebase(fireFactory.firebaseRef("categories/")));*/
+    //console.log($scope.bets);
     $scope.bets = $firebase(fireFactory.firebaseRef("bets/"));
-    $scope.users = $firebase(fireFactory.firebaseRef("users/"));
     $scope.categories = $firebase(fireFactory.firebaseRef("categories/"));
+    /*console.log($scope.betss);
+    $scope.bets = $filter("orderByPriority")($scope.betss);
+    $scope.categories = $filter("orderByPriority")($scope.categoriess);
+    console.log($scope.bets);
+    /*$scope.bets = $firebase(fireFactory.firebaseRef("bets/"));
+    $scope.categories = $firebase(fireFactory.firebaseRef("categories/"));*/
     //console.log($scope.categories[0]);
 }]);
 
